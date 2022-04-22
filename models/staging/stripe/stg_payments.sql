@@ -4,7 +4,7 @@ with payments as (
         ORDERID as order_id,
         AMOUNT/100 as amount,
         "STATUS" as payment_status
-    from raw.stripe.payment
+    from {{ source('STRIPE','PAYMENT') }}
 
 )
 

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: STRIPE
+    database: raw
+    schema: STRIPE
+    tables:
+      - name: PAYMENT
