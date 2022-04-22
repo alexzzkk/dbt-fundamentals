@@ -2,7 +2,8 @@ with payments as (
 
     select 
         ORDERID as order_id,
-        AMOUNT 
+        AMOUNT/100 as amount,
+        "STATUS" as payment_status
     from raw.stripe.payment
 
 )
