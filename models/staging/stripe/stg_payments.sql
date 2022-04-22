@@ -1,5 +1,10 @@
 with payments as (
-    select * from raw.stripe.payment
+
+    select 
+        ORDERID as order_id,
+        AMOUNT 
+    from raw.stripe.payment
+
 )
 
 select * from payments

@@ -1,15 +1,18 @@
 with payments as (
-    select * from {{ ref('stg_payments.sql')}}
+    select * from {{ ref('stg_payments') }}
 ),
 
 orders as (
-    select * from {{ref('stg_orders.sql')}}
+    select * from {{ ref('stg_orders') }}
 ),
 
 final as(
-select o.order_id,o.customer_id,p.amount from orders o
-left join payments p
-on o.order_id = p.order_id
+    select 
+        orders.order_id,
+        orders.customer_id,
+        payments.amount
+    from orders
+    left join payments using (order_id)
 )
 
 select * from final
