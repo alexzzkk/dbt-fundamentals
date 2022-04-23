@@ -10,8 +10,10 @@ models:
             - unique
             - not_null
     - name: stg_orders
+      description: Orders from customers.
       columns:
         - name: order_id
+          description: Primary key for stg_orders.
           tests:
             - unique
             - not_null
